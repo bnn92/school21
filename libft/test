@@ -1,0 +1,15 @@
+int		main(void)
+{
+	char s[1024] = "0123";
+
+	printf("%s\n", ft_strchr(s, '\0'));
+	printf("%s\n", strchr(s, '\0'));
+}
+
+int		main(void)
+{
+	//char s[1024] = "0123";
+
+	printf("%s\n", ft_strchr(((void *)0), '\0'));
+	printf("%s\n", strchr(((void *)0), '\0'));
+}
