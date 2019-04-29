@@ -1,0 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dshirl <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/03/19 19:38:36 by dshirl            #+#    #+#             */
+/*   Updated: 2019/03/19 20:08:15 by dshirl           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdlib.h>
+#include <stdio.h>
+
+char	*ft_strdup(char *src)
+{
+	int i;
+	char *str;
+
+	i = 0;
+	while (src[i] != '\0')
+		i++;
+	str = (char *str)malloc(sizeof(str) * (i + 1));
+	i = 0;
+	while(src[i] != '\0')
+		str[i] = src[i];
+	if (str == NULL)
+		return (NULL);
+	return (str);
+}
+
+int		main(void)
+{
+	char str[] = "abbcccdddd";
+
+	printf("%s,\n", ft_strdup(str));
+}

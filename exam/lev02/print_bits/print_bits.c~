@@ -1,0 +1,43 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_bits.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dshirl <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/03/20 18:05:01 by dshirl            #+#    #+#             */
+/*   Updated: 2019/03/20 18:13:48 by dshirl           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <unistd.h>
+
+void	print_bits(unsigned char octet)
+{
+	int number;
+	char bits[8];
+	int i = 0;
+
+	number = octet;
+	while(i <= 8)
+	{
+		bits[i] = number % 2;
+		number = number / 2;
+		i++;
+	}
+	i = 0;
+	while (bits[i] != '\0')
+	{
+		write(1, &bits[i], 1);
+		i++;
+	}
+	return (0);
+}
+
+int		main(void)
+{
+	unsigned char x = 5;
+	prints_bits(x);
+
+
+}

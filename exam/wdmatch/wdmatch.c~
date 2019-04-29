@@ -1,0 +1,55 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   wdmatch.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dshirl <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/03/18 13:31:19 by dshirl            #+#    #+#             */
+/*   Updated: 2019/03/18 13:42:31 by dshirl           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write (1, &c, 1);
+}
+
+void	ft_putstr(char *str)
+{
+	int ind;
+
+	ind = 0;
+	while (str[ind] != '\0')
+		ft_putchar(str[ind++]);
+}
+
+int		main(int argc, char **argv)
+{
+	int x;
+	int y;
+
+	x = 0;
+	y = 0;
+	if (argc == 3)
+	{
+		while (argv[2][y] != '\0')
+		{
+			if (argv[1][x] == '\0')
+			{
+				ft_putstr(argv[1]);
+				ft_putchar('\n');
+				return (0);
+			}
+			if (argv[1][x] == arcv[2][y])
+				x++;
+			y++;
+		}
+		if (argv[1][x] == '\0')
+			ft_putstr(argv[1]);
+	}
+	ft_putchar('\n');
+	return (0);
+}
