@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 19:22:26 by dshirl            #+#    #+#             */
-/*   Updated: 2019/05/06 12:59:24 by dshirl           ###   ########.fr       */
+/*   Created: 2019/05/06 15:49:49 by dshirl            #+#    #+#             */
+/*   Updated: 2019/05/06 15:54:15 by dshirl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+void	ft_strclr(char *s)
 {
-	void	*str;
+	size_t	size;
 
-	str = malloc(size);
-	if (str == 0)
-		return (0);
-	ft_bzero(str, size);
-	return (str);
+	size = 0;
+	if (s)
+	{
+		while (s[size] != '\0')
+			size++;
+		ft_memset((void *)s, '\0', size);
+	}
 }
