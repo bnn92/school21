@@ -6,7 +6,7 @@
 /*   By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 19:32:36 by dshirl            #+#    #+#             */
-/*   Updated: 2019/05/16 16:21:52 by dshirl           ###   ########.fr       */
+/*   Updated: 2019/05/22 19:24:26 by dshirl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,11 @@ char *ft_strtrim(char const *s);
 /* char **ft_strsplit(char const *s, char c);
 char *ft_itoa(int n); */
 void ft_putchar(char c);
-/* void ft_putstr(char const *s);
+void ft_putstr(char const *s);
 void ft_putendl(char const *s);
 void ft_putnbr(int n);
 void ft_putchar_fd(char c, int fd);
-void ft_putstr_fd(char const *s, int fd);
+/* void ft_putstr_fd(char const *s, int fd);
 void ft_putendl_fd(char const *s, int fd);
 void ft_putnbr_fd(int n, int fd);
 t_list *ft_lstnew(void const *content, size_t content_size);
