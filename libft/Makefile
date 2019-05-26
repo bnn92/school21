@@ -6,15 +6,15 @@
 #    By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/22 18:56:07 by dshirl            #+#    #+#              #
-#    Updated: 2019/04/22 20:52:48 by dshirl           ###   ########.fr        #
+#    Updated: 2019/05/26 19:10:17 by dshirl           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-SRC = *.c 
+SRC = *.c
 
-HEADER = libft.h 
+HEADER = libft.h
 
 TOTO = *.o
 
@@ -30,4 +30,4 @@ clean:
 fclean:
 	/bin/rm -f $(NAME)
 
-re: fclean all 
+re: fclean all
