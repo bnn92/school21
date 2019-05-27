@@ -6,49 +6,49 @@
 /*   By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/26 17:42:21 by dshirl            #+#    #+#             */
-/*   Updated: 2019/05/26 20:23:13 by dshirl           ###   ########.fr       */
+/*   Updated: 2019/05/27 15:36:41 by dshirl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		get_nb_size(unsigned int nb)
+int		ft_size_nbr(unsigned int n)
 {
 	unsigned int	size;
 
 	size = 0;
-	while (nb >= 10)
+	while (n >= 10)
 	{
-		nb /= 10;
+		n /= 10;
 		++size;
 	}
 	return (size + 1);
 }
 
-char			*ft_itoa(int nbr)
+char	*ft_itoa(int n)
 {
 	char			*str;
-	unsigned int	nb;
-	unsigned int	index;
+	unsigned int	nbr;
 	unsigned int	size;
+	unsigned int	i;
 
-	if (nbr < 0)
-		nb = (unsigned int)(nbr * -1);
+	i = 0;
+	if (n < 0)
+		nbr = (unsigned int)(n * -1);
 	else
-		nb = (unsigned int)nbr;
-	size = (unsigned int)get_nb_size(nb);
-	index = 0;
-	if (!(str = (char*)malloc(sizeof(char) * (size + 1 + (nbr < 0 ? 1 : 0)))))
+		nbr = (unsigned int)n;
+	size = (unsigned int)ft_size_nbr(nbr);
+	if (!(str = (char *)malloc(sizeof(char) * (size + 1 + (n < 0 ? 1 : 0)))))
 		return (0);
-	if (nbr < 0 && (str[index] = '-'))
+	if (n < 0 && (str[i] = '-'))
 		size++;
-	index = size - 1;
-	while (nb >= 10)
+	i = size - 1;
+	while (nbr >= 10)
 	{
-		str[index--] = (char)(nb % 10 + 48);
-		nb /= 10;
+		str[i--] = (char)(nbr % 10 + 48);
+		nbr /= 10;
 	}
-	str[index] = (char)(nb % 10 + 48);
+	str[i] = (char)(nbr % 10 + 48);
 	str[size] = '\0';
 	return (str);
 }
