@@ -6,29 +6,11 @@
 /*   By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 16:45:54 by dshirl            #+#    #+#             */
-/*   Updated: 2019/05/27 20:02:06 by dshirl           ###   ########.fr       */
+/*   Updated: 2019/05/28 21:18:49 by dshirl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static char	*ft_strndup(const char *s, size_t n)
-{
-	unsigned int	i;
-	char			*str;
-
-	i = 0;
-	str = malloc(sizeof(char) * (n + 1));
-	if (str == 0)
-		return (0);
-	while (i < n)
-	{
-		str[i] = s[i];
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
-}
 
 static int	ft_p(char const *s, char c)
 {
@@ -48,17 +30,6 @@ static int	ft_p(char const *s, char c)
 	if (s[0] != '\0')
 		piece++;
 	return (piece);
-}
-
-void		ft_memclean(char **str)
-{
-	int i;
-
-	i = 0;
-	free(str);
-	while (str[i])
-		free(str[i++]);
-	str = NULL;
 }
 
 char		**ft_strsplit(char const *s, char c)

@@ -6,24 +6,11 @@
 /*   By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/26 17:42:21 by dshirl            #+#    #+#             */
-/*   Updated: 2019/05/28 14:48:34 by dshirl           ###   ########.fr       */
+/*   Updated: 2019/05/28 21:15:35 by dshirl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	ft_size_nbr(unsigned int n)
-{
-	unsigned int	size;
-
-	size = 0;
-	while (n >= 10)
-	{
-		n /= 10;
-		++size;
-	}
-	return (size + 1);
-}
 
 char		*ft_itoa(int n)
 {

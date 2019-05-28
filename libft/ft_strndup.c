@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/06 13:14:15 by dshirl            #+#    #+#             */
-/*   Updated: 2019/05/28 21:09:02 by dshirl           ###   ########.fr       */
+/*   Created: 2019/05/28 21:10:21 by dshirl            #+#    #+#             */
+/*   Updated: 2019/05/28 21:10:58 by dshirl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+char	*ft_strndup(const char *s, size_t n)
 {
-	char *str;
+	unsigned int	i;
+	char			*str;
 
-	if ((size + 1) == 0)
-		return (0);
-	str = malloc(sizeof(char) * (size + 1));
+	i = 0;
+	str = malloc(sizeof(char) * (n + 1));
 	if (str == 0)
 		return (0);
-	ft_memset(str, '\0', (size + 1));
+	while (i < n)
+	{
+		str[i] = s[i];
+		i++;
+	}
+	str[i] = '\0';
 	return (str);
 }

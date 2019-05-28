@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_memclean.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/06 13:14:15 by dshirl            #+#    #+#             */
-/*   Updated: 2019/05/28 21:09:02 by dshirl           ###   ########.fr       */
+/*   Created: 2019/05/28 21:18:12 by dshirl            #+#    #+#             */
+/*   Updated: 2019/05/28 21:18:42 by dshirl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+void	ft_memclean(char **str)
 {
-	char *str;
+	int i;
 
-	if ((size + 1) == 0)
-		return (0);
-	str = malloc(sizeof(char) * (size + 1));
-	if (str == 0)
-		return (0);
-	ft_memset(str, '\0', (size + 1));
-	return (str);
+	i = 0;
+	free(str);
+	while (str[i])
+		free(str[i++]);
+	str = NULL;
 }

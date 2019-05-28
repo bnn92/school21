@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_size_nbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/06 13:14:15 by dshirl            #+#    #+#             */
-/*   Updated: 2019/05/28 21:09:02 by dshirl           ###   ########.fr       */
+/*   Created: 2019/05/28 21:14:55 by dshirl            #+#    #+#             */
+/*   Updated: 2019/05/28 21:15:25 by dshirl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+int		ft_size_nbr(unsigned int n)
 {
-	char *str;
+	unsigned int	size;
 
-	if ((size + 1) == 0)
-		return (0);
-	str = malloc(sizeof(char) * (size + 1));
-	if (str == 0)
-		return (0);
-	ft_memset(str, '\0', (size + 1));
-	return (str);
+	size = 0;
+	while (n >= 10)
+	{
+		n /= 10;
+		++size;
+	}
+	return (size + 1);
 }
