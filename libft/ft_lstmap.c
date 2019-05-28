@@ -1,30 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/28 18:18:12 by dshirl            #+#    #+#             */
-/*   Updated: 2019/05/28 20:28:05 by dshirl           ###   ########.fr       */
+/*   Created: 2019/05/28 19:09:31 by dshirl            #+#    #+#             */
+/*   Updated: 2019/05/28 20:26:47 by dshirl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+static void	del(void *content, size_t content_size)
 {
-	t_list	*point;
+	if (!content)
+		return ;
+	free(content);
+	content = NULL;
+	content_size = 0;
+}
+
+t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+{
+	t_list	*start;
 	t_list	*list;
 
-	if (!alst || !*alst || *del)
+	if (!lst || !(*f))
 		return (NULL);
-	point = *alst;
-	while (point)
+	list = f(lst);
+	start = list;
+	while (lst->next)
 	{
-		list = point;
-		ft_lstdelone(&point, del);
-		point = list->next;
+		lst = lst->next;
+		if (!(list->next = f(lst)))
+		{
+			ft_lstdel(&start, del);
+			return (NULL);
+		}
+		list = list->next;
 	}
-	*alst = NULL;
+	return (start);
 }

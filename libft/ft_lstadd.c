@@ -6,7 +6,7 @@
 /*   By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 18:59:39 by dshirl            #+#    #+#             */
-/*   Updated: 2019/05/28 19:01:26 by dshirl           ###   ########.fr       */
+/*   Updated: 2019/05/28 19:04:13 by dshirl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_lstadd(t_list **alst, t_list *new)
 {
-	
+	new->next = *alst;
+	*alst = new;
 }
