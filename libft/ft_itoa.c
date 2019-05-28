@@ -6,13 +6,13 @@
 /*   By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/26 17:42:21 by dshirl            #+#    #+#             */
-/*   Updated: 2019/05/27 15:36:41 by dshirl           ###   ########.fr       */
+/*   Updated: 2019/05/28 14:48:34 by dshirl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_size_nbr(unsigned int n)
+static int	ft_size_nbr(unsigned int n)
 {
 	unsigned int	size;
 
@@ -25,7 +25,7 @@ int		ft_size_nbr(unsigned int n)
 	return (size + 1);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	char			*str;
 	unsigned int	nbr;
