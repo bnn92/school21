@@ -6,7 +6,7 @@
 /*   By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/07 16:38:47 by dshirl            #+#    #+#             */
-/*   Updated: 2019/07/07 18:40:14 by dshirl           ###   ########.fr       */
+/*   Updated: 2019/07/16 18:56:50 by dshirl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@
 			return (0);
 		fin = ft_strchr(save, '\n');
 		if (fin != NULL)
-		{
+		{ 
 			*fin = '\0';
 			*line = ft_strdup(save);
 			ft_strncpy(save, &fin[1], ft_strlen(&fin[1]) + 1);
