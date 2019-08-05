@@ -6,13 +6,13 @@
 /*   By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 18:28:48 by dshirl            #+#    #+#             */
-/*   Updated: 2019/07/06 18:34:33 by dshirl           ###   ########.fr       */
+/*   Updated: 2019/08/05 13:20:53 by dshirl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFF_SIZE 1
+# define BUFF_SIZE 10
 # include "fcntl.h"
 # include "sys/types.h"
 # include "sys/uio.h"
