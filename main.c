@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/06 18:28:48 by dshirl            #+#    #+#             */
-/*   Updated: 2019/08/08 19:17:38 by dshirl           ###   ########.fr       */
+/*   Created: 2019/07/06 18:25:11 by dshirl            #+#    #+#             */
+/*   Updated: 2019/08/07 16:18:21 by dshirl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 10
-# include "libft.h"
+#include "get_next_line.h"
+#include <fcntl.h>
 
-typedef struct		s_gnl
+int		main(void)
 {
-	char			*text;
-	char			*tmp;
-	struct s_gnl	*next;
-	int				fd;
-}					gnl;
+    int		fd;
+    char	*line;
 
-int					get_next_line(const int fd, char **line);
-
-#endif
+    fd = open("./new.txt", O_RDWR);
+	while ((get_next_line(fd, &line)) == 1)
+	{
+        ft_putstr(line);
+		ft_putchar('\n');
+	}
+	close(fd);
+}

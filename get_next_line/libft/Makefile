@@ -6,7 +6,7 @@
 #    By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/22 18:56:07 by dshirl            #+#    #+#              #
-#    Updated: 2019/05/28 21:19:45 by dshirl           ###   ########.fr        #
+#    Updated: 2019/08/07 16:29:47 by dshirl           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,7 @@ ft_strndup.c \
 ft_size_nbr.c \
 ft_memclean.c
 
-HEADER = libft.h
+HEADER = ./includes
 
 TOTO = ft_memset.o \
 ft_bzero.o \
