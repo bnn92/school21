@@ -6,17 +6,17 @@
 /*   By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/07 18:22:36 by dshirl            #+#    #+#             */
-/*   Updated: 2019/08/08 19:17:28 by dshirl           ###   ########.fr       */
+/*   Updated: 2019/08/09 14:35:07 by dshirl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static gnl		*create_list(int fd)
+static t_gnl	*ft_create_list(int fd)
 {
-	gnl *list;
+	t_gnl *list;
 
-	if (!(list = (gnl*)malloc(sizeof(*list))))
+	if (!(list = (t_gnl*)malloc(sizeof(*list))))
 		return (NULL);
 	list->fd = fd;
 	list->tmp = ft_strnew(0);
@@ -25,9 +25,9 @@ static gnl		*create_list(int fd)
 	return (list);
 }
 
-static void		add_last(gnl **main, gnl *elem)
+static void		ft_add_last(t_gnl **main, t_gnl *elem)
 {
-	gnl *list;
+	t_gnl *list;
 
 	list = *main;
 	while (list->next != NULL)
@@ -35,10 +35,10 @@ static void		add_last(gnl **main, gnl *elem)
 	list->next = elem;
 }
 
-static gnl	*check_fd(gnl *main, int fd)
+static t_gnl	*ft_check_fd(t_gnl *main, int fd)
 {
-	gnl *tempo;
-	gnl *r_list;
+	t_gnl *tempo;
+	t_gnl *r_list;
 
 	tempo = NULL;
 	r_list = main;
@@ -48,8 +48,8 @@ static gnl	*check_fd(gnl *main, int fd)
 			return (r_list);
 		if (!(r_list->next))
 		{
-			tempo = create_list(fd);
-			add_last(&r_list, tempo);
+			tempo = ft_create_list(fd);
+			ft_add_last(&r_list, tempo);
 			return (tempo);
 		}
 		r_list = r_list->next;
@@ -57,7 +57,7 @@ static gnl	*check_fd(gnl *main, int fd)
 	return (NULL);
 }
 
-static int		check(char *main, char **line)
+static int		ft_check(char *main, char **line)
 {
 	char *str;
 
@@ -82,27 +82,27 @@ static int		check(char *main, char **line)
 
 int				get_next_line(const int fd, char **line)
 {
-	char		buf[BUFF_SIZE + 1];
-	static gnl	*main = NULL;
-	gnl			*tempo;
-	int			ret;
+	char			buf[BUFF_SIZE + 1];
+	static t_gnl	*main = NULL;
+	t_gnl			*tempo;
+	int				ret;
 
 	if (fd == -1 || line == NULL || BUFF_SIZE <= 0)
 		return (-1);
 	if (!(main))
-		main = create_list(fd);
-	tempo = check_fd(main, fd);
+		main = ft_create_list(fd);
+	tempo = ft_check_fd(main, fd);
 	while (!(ft_strchr(tempo->tmp, '\n')))
 	{
 		ret = read(fd, buf, BUFF_SIZE);
 		if (ret == -1)
 			return (-1);
 		if (ret == 0)
-			return (check(tempo->text, line));
+			return (ft_check(tempo->text, line));
 		buf[ret] = '\0';
 		tempo->text = ft_strjoin(tempo->tmp, buf);
 		free(tempo->tmp);
 		tempo->tmp = tempo->text;
 	}
-	return (check(tempo->text, line));
+	return (ft_check(tempo->text, line));
 }

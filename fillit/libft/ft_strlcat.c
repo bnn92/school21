@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/06 18:28:48 by dshirl            #+#    #+#             */
-/*   Updated: 2019/08/09 15:20:31 by dshirl           ###   ########.fr       */
+/*   Created: 2019/04/27 13:33:54 by dshirl            #+#    #+#             */
+/*   Updated: 2019/04/28 19:32:26 by dshirl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 1000
-# include "libft.h"
+#include "libft.h"
 
-typedef struct		s_gnl
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	char			*text;
-	char			*tmp;
-	struct s_gnl	*next;
-	int				fd;
-}					t_gnl;
+	size_t i;
+	size_t x;
+	size_t y;
 
-int					get_next_line(const int fd, char **line);
-
-#endif
+	i = 0;
+	x = 0;
+	y = 0;
+	while (dst[i] != '\0')
+		i++;
+	while (src[x] != '\0')
+		x++;
+	if (size <= i)
+		x = x + size;
+	else
+		x = x + i;
+	while (src[y] != '\0' && i + 1 < size)
+	{
+		dst[i] = src[y];
+		i++;
+		y++;
+	}
+	dst[i] = '\0';
+	return (x);
+}

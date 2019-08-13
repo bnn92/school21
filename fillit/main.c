@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/06 18:28:48 by dshirl            #+#    #+#             */
-/*   Updated: 2019/08/09 15:20:31 by dshirl           ###   ########.fr       */
+/*   Created: 2019/08/11 16:30:01 by dshirl            #+#    #+#             */
+/*   Updated: 2019/08/13 19:04:39 by dshirl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 1000
-# include "libft.h"
+#include "fillit.h"
 
-typedef struct		s_gnl
+static int	error(char *str)
 {
-	char			*text;
-	char			*tmp;
-	struct s_gnl	*next;
-	int				fd;
-}					t_gnl;
+	ft_putendl(str);
+	return (0);
+}
 
-int					get_next_line(const int fd, char **line);
+int		main(int argc, char **argv)
+{
+	int		fd;
+	int		ret;
+	char	buf[550];
 
-#endif
+	if (argc == 2)
+	{
+		if ((fd = open(argv[1], O_RDONLY)) < 0 || (ret = read(fd, buf, BUFF_SIZE)) < 20 || !buf[0])
+			return (0);
+		if (valid(buf) == 1)
+			ft_putchar('1');
+		else
+			ft_putchar('0');
+		close (fd);
+	}
+	else
+		return (error("error"));
+}

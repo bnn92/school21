@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/06 18:28:48 by dshirl            #+#    #+#             */
-/*   Updated: 2019/08/09 15:20:31 by dshirl           ###   ########.fr       */
+/*   Created: 2019/04/28 14:10:36 by dshirl            #+#    #+#             */
+/*   Updated: 2019/04/29 18:24:18 by dshirl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 1000
-# include "libft.h"
+#include "libft.h"
 
-typedef struct		s_gnl
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	char			*text;
-	char			*tmp;
-	struct s_gnl	*next;
-	int				fd;
-}					t_gnl;
+	int	x;
+	int	y;
 
-int					get_next_line(const int fd, char **line);
-
-#endif
+	x = 0;
+	if (needle[0] == '\0')
+		return ((char *)haystack);
+	while (haystack[x] != '\0')
+	{
+		if (haystack[x] == needle[0])
+		{
+			y = 1;
+			while (haystack[x + y] == needle[y] && needle[y] != '\0')
+				y++;
+			if (needle[y] == '\0')
+				return ((char *)&haystack[x]);
+		}
+		x++;
+	}
+	return (0);
+}
