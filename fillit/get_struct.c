@@ -6,7 +6,7 @@
 /*   By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/16 18:30:00 by dshirl            #+#    #+#             */
-/*   Updated: 2019/08/16 21:13:07 by dshirl           ###   ########.fr       */
+/*   Updated: 2019/08/17 15:34:35 by dshirl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	get_tetr(t_tetr **tmp, char *block)
 	}
 }
 
-t_tetr		*get_struct( char *buf)
+t_tetr		*get_struct(char *buf)
 {
 	char	letter;
 	int		count_tetr;

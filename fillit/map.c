@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 16:30:01 by dshirl            #+#    #+#             */
-/*   Updated: 2019/08/17 17:11:30 by dshirl           ###   ########.fr       */
+/*   Created: 2019/08/17 17:16:47 by dshirl            #+#    #+#             */
+/*   Updated: 2019/08/17 18:30:48 by dshirl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int	error(char *str)
+char	**map_new(char **start_map, int size)
 {
-	ft_putendl(str);
-	return (0);
-}
+	int		x;
+	int		y;
 
-int		main(int argc, char **argv)
-{
-	int		fd;
-	int		ret;
-	char	buf[550];
-	t_tetr	*tetriki;
-
-	if (argc == 2)
+	y = 0;
+	if (!(start_map = (char **)malloc(sizeof(char *) * size + 1)))
+		return (NULL);
+	while (y < size)
 	{
-		if ((fd = open(argv[1], O_RDONLY)) < 0 || (ret = read(fd, buf, BUFF_SIZE)) < 20 || !buf[0])
-			return (0);
-		if (valid(buf) != 1)
-			return (error("error"));
-		close (fd);
-		tetriki = get_struct(buf);
-		solution(tetriki);
+		if (!(map[y] = (char *)malloc(sizeof(char) * size + 1)))
+			return (NULL);
+		x = 0;
+		while (x < size)
+		{
+			start_map[y][x] = '.';
+			x++;
+		}
+		start_map[y][x] = '\0';
+		y++;
 	}
-	else
-		return (error("error"));
+	start_map[y] = '\0';
+	return (start_map);
 }
