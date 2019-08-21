@@ -6,7 +6,7 @@
 /*   By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 19:32:36 by dshirl            #+#    #+#             */
-/*   Updated: 2019/05/28 21:19:12 by dshirl           ###   ########.fr       */
+/*   Updated: 2019/08/20 16:10:28 by dshirl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 # define LIBFT_H
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include <string.h>
 # include <strings.h>
 # include <ctype.h>
+# include <fcntl.h>
 
 typedef struct		s_list
 {

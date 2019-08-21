@@ -6,7 +6,7 @@
 /*   By: dshirl <dshirl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 17:09:46 by dshirl            #+#    #+#             */
-/*   Updated: 2019/08/17 20:49:25 by dshirl           ###   ########.fr       */
+/*   Updated: 2019/08/18 18:52:34 by dshirl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ char		**try_sol(char **start_map, t_tetr *tetriki, int size)
 	int		y;
 
 	if (tetriki->next == NULL)
-		return(start_map);
+		return (start_map);
 	final_map = 0;
 	y = 0;
 	while (y < size)
@@ -105,15 +105,18 @@ char		**try_sol(char **start_map, t_tetr *tetriki, int size)
 		x = 0;
 		while (x < size)
 		{
-			change_tetriki(&tetriki, x,y);
+			change_tetriki(&tetriki, x, y);
 			if (check_tetr(start_map, tetriki, size))
 				final_map = try_sol(insert_tetr(start_map, tetriki, size),
 							tetriki->next, size);
 			if (final_map)
 				return (final_map);
-			
+			start_map = renew_map(start_map, tetriki, size);
+			x++;
 		}
+		y++;
 	}
+	return (NULL);
 }
 
 void		solution(t_tetr *tetriki)
@@ -125,12 +128,12 @@ void		solution(t_tetr *tetriki)
 	size = 2;
 	final_map = NULL;
 	start_map = NULL;
-	start_map = new_map(start_map, size);
+	start_map = map_new(start_map, size);
 	while (!(final_map = try_sol(start_map, tetriki, size)))
 	{
 		size++;
-		ft_mamdel((void **)start_map);
-		start_map = new_map(start_map, size);
+		ft_memdel((void **)start_map);
+		start_map = map_new(start_map, size);
 	}
-	print(final_map);
+	print_map(final_map);
 }
