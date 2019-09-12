@@ -1,0 +1,4 @@
+#!/bin/sh
+#nano /etc/passwd and change user rights on '0'
+pkill -u newuser
+userdel newuser

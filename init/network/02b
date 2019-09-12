@@ -1,0 +1,2 @@
+#!/bin/sh
+arp -a | awk '{print $2}' | cut -c 2-17 | rev | cut -c 2-17 | rev | cat -e

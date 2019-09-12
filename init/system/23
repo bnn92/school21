@@ -1,0 +1,5 @@
+ssh user@ip
+1. In root
+2. adduser [username]
+3. usermod -aG sudo [username]
+4. su - name

@@ -1,0 +1,2 @@
+#!/bin/sh
+getent passwd $(ls /home) | awk -F: '{print $1}'

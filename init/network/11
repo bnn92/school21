@@ -1,0 +1,4 @@
+traceroute slash16.org
+1 192.168.20.1 - local
+2 192.168.2.9 - NAT
+3 83-69-219-253.in-addr.mastertelecom.ru - public (this device makes the link between local network and the outside world)
