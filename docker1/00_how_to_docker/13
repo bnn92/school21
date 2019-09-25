@@ -1,0 +1,3 @@
+docker exec spawning-pool env
+
+# перед этим docker start spawning-pool

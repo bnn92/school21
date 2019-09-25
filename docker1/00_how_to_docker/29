@@ -1,0 +1,1 @@
+docker service ps $(docker service ls -f "name=marines" -q)

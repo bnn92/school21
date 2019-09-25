@@ -1,0 +1,4 @@
+apt-get update
+apt-get upgrade -y
+apt install gcc git -y
+# запускаем debian - (docker run -it debian) и прописываем в нем эти команды

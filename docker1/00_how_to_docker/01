@@ -1,0 +1,3 @@
+docker-machine create -d virtualbox Char
+
+# docker-machine create --driver virtualbox --virtualbox-cpu-count "2" --virtualbox-memory "4096" Char

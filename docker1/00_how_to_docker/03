@@ -1,0 +1,3 @@
+eval $(docker-machine env Char)
+
+#запускаем команду - docker-machine env Char, затем нашу команду и docker ps начинает работать
